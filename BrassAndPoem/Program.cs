@@ -202,17 +202,14 @@ namespace BrassAndPoem{
             1 = Poetry Books
             2 = Brass Instrument");
             Console.WriteLine(Inventory.products[response].ProductTypeId);
-            int updatedProductId = int.Parse(Console.ReadLine());
-            if (updatedProductId == 2 || updatedProductId == 3)
+            
+            string input2 = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(input2) && int.TryParse(input2, out int updatedProductId) && (updatedProductId == 1 || updatedProductId == 2))
             {
                 Inventory.products[response].ProductTypeId = updatedProductId;
             }
-            else 
-            {
-                Console.WriteLine("Please enter a valid number.");
-            }
 
-            Console.WriteLine(updatedProductId);
             DisplayAllProducts();
         }
 
